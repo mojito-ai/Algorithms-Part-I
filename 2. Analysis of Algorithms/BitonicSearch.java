@@ -40,8 +40,47 @@ public class BitonicSearch {
 	//signing bonus version
 	public static int search(int [] a, int key)
 	{
+		int N=a.length;
+		int pos=-1;
+		boolean right=false;
+		int mid=(N-1)/2;
 		
-		return 0;
+		if(a[mid]>a[mid-1])	right=true;
+		else 	right=false;
+		
+		if(a[mid]<key && right==false) //case 1
+			pos=BinarySearch(a,0,mid-1,key,true);
+		
+		else if(a[mid]<key && right==true) //case 2
+			pos=BinarySearch(a,mid+1,N-1,key,true);
+		
+		else if(a[mid]>key) //case 3
+		{
+			pos=BinarySearch(a,0,mid-1,key,true);
+			if(pos==-1)
+				pos=BinarySearch(a,mid+1,N-1,key,false);
+		}
+		
+		return pos;
+		
+	}
+	
+	private static int BinarySearch(int [] a, int lo, int hi, int key, boolean value)
+	{
+		int flag=0;
+		if (value==true)	flag=1;		//ascending binary search
+		if (value==false)	flag=-1;	//descending binary search
+		
+		while(lo<=hi)
+		{
+			//one 3-way compare
+			int mid=lo+(hi-lo)/2;
+			if(key<a[mid])	hi=mid-flag;
+			else if(key>a[mid])	lo=mid+flag;
+			else return mid;
+		}
+		
+		return -1;
 		
 	}
 }
