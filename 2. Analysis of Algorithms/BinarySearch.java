@@ -10,8 +10,9 @@
 public class BinarySearch {
 
 	//If key appears in the array a[] -> a[lo]<a[mid]<a[hi]
-	public static int Binary_Search(int [] a, int key)
+	public static int Binary_Search(int [] a, int key) //sorted array a[]
 	{
+//		assert isSorted(a);
 		int lo=0;
 		int hi=a.length-1;
 		while(lo<=hi)
