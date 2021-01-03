@@ -1,0 +1,25 @@
+Egg Drop
+
+N storey building & dropping eggs. Egg breaks if dropped from floor T or higher. Devise stratedgy to find T.
+
+Version 0: 1 Egg <= T tosses
+	Sequential Search
+	
+Version 1: lg N Eggs <= lg N tosses
+	Binary Search
+	
+Version 2: lg T Eggs and ~2lg T tosses
+	Find interval containing T of size <=2T, then binary search. Start test at floor 0 & exponentially grow (2^Nt) 
+	floor number until the first egg breaks. The value of T must be between 2^t & 2^(t-1). This range can be then 
+	searched in lg T tosses using binary search.
+	
+Version 3: 2 Eggs and ~2(N)^(1/2)
+	Find interval of size under-root(N), then do sequential search.
+	Test floors in increment of under-root(N) starting from floor 0. When egg breaks on floor t, return to floor t-1
+	and increment by each floor. The remaining under-root(N) tests will be enough to check each floor between t-1 & t.
+	The floor that breaks will of value T. [iterate across (k-1)N^1/2 to N^1/2]
+	
+Version 4: 2 eggs and <=c(T)^(1/2) tosses to fixed constant c.
+	1+2+3+-------+t~(t^2)/2.
+	For this take intervals 1,3,6,10,15........ and then iterate though the unknown elements. This archives the bound
+	since solving n(n+1)/2=T --> n<=(2T)^(1/2)
