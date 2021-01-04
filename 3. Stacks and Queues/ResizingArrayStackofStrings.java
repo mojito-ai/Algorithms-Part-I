@@ -1,12 +1,12 @@
 import edu.princeton.cs.algs4.StdIn;
 
 /**
-* Stack: A data structure used to store objects. It works on the principle that it examines the elements least recently
+* Stack: A data structure used to store objects. It works on the principle that it examines the elements most recently
 * entered: LIFO (Last in, First out)
 * 
 * <li> Amortized Analysis: Cost of inserting first N elements: N+(2+4+8+16--------+N)~3N
 * 
-* <li> Performance: Constant time ~1 under amortized analysis-
+* <li> Performance: Constant time ~1 under amortized analysis.
 * 
 * @category Array (Resizing) approach to the implementation of Stack of Strings.
 * @author  Mohit Sharma
