@@ -2,19 +2,19 @@
  *Bitonic Search: An array is bitonic if it comprises of increasing sequence of integers followed by decreasing sequence
  *of integers. Given N-distinct integers in a bitonic array, determine whether a given number is in the array.
  *
- *1. Standard Version ~3lg N compares in worst case
+ *<li> 1. Standard Version ~3lg N compares in worst case
  *	--> first find the maximum integer using ~lg N compares. Then divide the array into the increasing and decreasing parts
  *
- *2. Signing Bonus: ~2lg N compares in worst case
+ *<li> 2. Signing Bonus: ~2lg N compares in worst case
  *	--> Do it without finding the maximum integer 	
  *
- *	 We can modify the standard Binary Search algorithm for the given type of arrays.
- *	i) If the mid element is greater than both of its adjacent elements, then mid is the maximum.
- *	ii) If mid element is greater than its next element and smaller than the previous element then maximum lies on left side of mid. Example array: {3, 50, 10, 9, 7, 6}
- *	iii) If mid element is smaller than its next element and greater than the previous element then maximum lies on right side of mid. Example array: {2, 4, 6, 8, 10, 3, 1}
+ *<li> 	 We can modify the standard Binary Search algorithm for the given type of arrays.
+ *<li>i) If the mid element is greater than both of its adjacent elements, then mid is the maximum.
+ *<li>ii) If mid element is greater than its next element and smaller than the previous element then maximum lies on left side of mid. Example array: {3, 50, 10, 9, 7, 6}
+ *<li>iii) If mid element is smaller than its next element and greater than the previous element then maximum lies on right side of mid. Example array: {2, 4, 6, 8, 10, 3, 1}
  * 
  * @author  Mohit Sharma
- * @version 1.0
+ * @version 2.0
  * @since   03-01-2021
  */
 
