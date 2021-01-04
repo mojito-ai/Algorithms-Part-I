@@ -4,24 +4,30 @@ import edu.princeton.cs.algs4.StdIn;
 * Stack: A data structure used to store objects. It works on the principle that it examines the elements least recently
 * entered: LIFO (Last in, First out)
 * 
-* @category Array (fixed capacity) approach to the implementation of Stack of Strings.
+* <li> Amortized Analysis: Cost of inserting first N elements: N+(2+4+8+16--------+N)~3N
+* 
+* <li> Performance: Constant time ~1 under amortized analysis-
+* 
+* @category Array (Resizing) approach to the implementation of Stack of Strings.
 * @author  Mohit Sharma
 * @version 1.0
 * @since   04-01-2021
 */
 
-public class FixedCapacityStackofStrings {
+public class ResizingArrayStackofStrings {
 	
 	private String [] s;
 	private int N=0;
 	
-	public FixedCapacityStackofStrings(int N)	//create an empty stack with fixed capacity
+	public ResizingArrayStackofStrings()	//create an empty stack with fixed capacity
 	{
-		s=new String[N];
+		s=new String[1];
 	}
 	
 	public void push(String item) //insert a new string onto stack
 	{
+		if(N==s.length)		
+			resize(2*s.length); //if array is full, create a new one of twice the size
 		s[N++]=item;
 	}
 	
@@ -31,6 +37,8 @@ public class FixedCapacityStackofStrings {
 		{	
 			String item=s[--N];
 			s[N]=null;
+			if(N>0 && N==s.length/4)
+				resize(s.length/2);
 			return item;
 		}		
 		else
@@ -47,9 +55,17 @@ public class FixedCapacityStackofStrings {
 		return N;
 	}
 	
+	private void resize(int capacity)
+	{
+		String [] copy=new String[capacity];
+		for(int i=0;i<N;i++)
+			copy[i]=s[i];
+		s=copy;
+	}
+	
 	public static void main(String [] args) //tester
 	{
-		FixedCapacityStackofStrings stack=new FixedCapacityStackofStrings(10);
+		ResizingArrayStackofStrings stack=new ResizingArrayStackofStrings();
 		while(!StdIn.isEmpty())
 		{
 			String s=StdIn.readString();
@@ -59,3 +75,4 @@ public class FixedCapacityStackofStrings {
 	}
 
 }
+
