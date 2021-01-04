@@ -67,21 +67,34 @@ public class BitonicSearch {
 	
 	private static int BinarySearch(int [] a, int lo, int hi, int key, boolean value)
 	{
-		int flag=0;
-		if (value==true)	flag=1;		//ascending binary search
-		if (value==false)	flag=-1;	//descending binary search
 		
-		while(lo<=hi)
+		if (value==true)	//ascending binary search
 		{
-			//one 3-way compare
-			int mid=lo+(hi-lo)/2;
-			if(key<a[mid])	hi=mid-flag;
-			else if(key>a[mid])	lo=mid+flag;
-			else return mid;
+			while(lo<=hi)
+			{
+				//one 3-way compare
+				int mid=lo+(hi-lo)/2;
+				if(key<a[mid])	hi=mid-1;
+				else if(key>a[mid])	lo=mid+1;
+				else return mid;
+			}
+			
+			return -1;
 		}
-		
-		return -1;
-		
+	
+		else	//descending binary search
+		{
+			while(lo<=hi)
+			{
+				//one 3-way compare
+				int mid=lo+(hi-lo)/2;
+				if(key<a[mid])	lo=mid+1;
+				else if(key>a[mid])	hi=mid-1;
+				else return mid;
+			}
+			
+			return -1;
+		}
 	}
 }
 
