@@ -26,10 +26,10 @@ public class ResizingArrayQueue {
 	
 	public void enqueue(String item)
 	{
-		if(N>0 && N==s.length)	resize(2*s.length);
+		if (N==s.length)	resize(2*s.length);
 		N++;
 		s[last++]=item;
-		if(last==s.length)	last=0;		//wrap around
+		if(last==s.length)	last=0;			//wrap around
 		
 	}
 	
@@ -40,7 +40,7 @@ public class ResizingArrayQueue {
 		String item=s[first];
 		s[first]=null;
 		first++;
-		if(first==s.length)	first=0;		//wrap around
+		if(first==s.length)	first=0;					//wrap around
 		if(N>0 && N==s.length/4)	resize(s.length/2);
 		return item;
 	}
@@ -50,7 +50,7 @@ public class ResizingArrayQueue {
 		assert capacity >= N;
         String[] copy = new String[capacity];
         for (int i = 0; i < N; i++) {
-            copy[i] = s[(first + i) % s.length];
+            copy[i] = s[(first + i) % s.length]; //wrap around
         }
         s = copy;
         first = 0;
