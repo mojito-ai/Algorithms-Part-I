@@ -1,28 +1,28 @@
 /**
-* Selection Sort: In iteration "i", find index min of smallest remaining entry. Swap a[i] with a[min]
+* Insertion Sort: In iteration "i", swap a[i] with each larger entry to its left.
 * 
-* <li>Analysis: ~N²/2 compares and N exchanges
-* <li>Selection sort is insensitive to input. Would still take quadratic time if array is sorted.
-* <li>Selection Sort is instable
+* <li>Analysis: To sort a randomly ordered array with distinct keys: ~N²/4 compares and ~N²/4 exchanges on average
+* <li>Proof: Expect each entry to move halfway back
+* <li>Best case analysis: N-1 compares & 0 exchanges to an already sorted array 
+* <li>Insertion sort is stable
 * 
 * @author  Mohit Sharma
 * @version 1.0
 * @since   05-01-2021
 */
 @SuppressWarnings("rawtypes") 
-public class Selection {
-	
+
+public class Insertion {
 
 	public static void sort(Comparable [] a)
 	{
 		int N=a.length;
-		int min=0;
 		for(int i=0;i<N;i++){
-			min=i;
-			for(int j=i+1;j<N;j++)
-				if(less(a[j],a[min]))
-					min=j;
-			exch(a,i,min);
+			for(int j=i;j>0;j--)
+				if(less(a[j],a[j-1]))
+					exch(a,j,j-1);
+				else
+					break;
 		}
 	}
 	
