@@ -6,6 +6,7 @@
 * <li>Java Virtual Machine
 * <li>Undo in a Word Processor
 * <li>Back Button in a Web Browser
+
 * 
 * @author  Mohit Sharma
 * @version 1.0
@@ -13,7 +14,11 @@
 */
 
 public class GCD{
-	
+	/** 
+	* How a compiler implements a function?
+	* <li> Function call: "push" local environment and return address
+	* <li> Return: "pop" return address and local environment
+	*/
 	public static int gcd(int p, int q)
 	{
 		if(q==0)	return p;

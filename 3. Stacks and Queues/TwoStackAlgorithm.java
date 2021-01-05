@@ -17,6 +17,16 @@ import edu.princeton.cs.algs4.Stack;
 
 public class TwoStackAlgorithm {
 	
+	/**Correctness of Two Stack
+	 * <li> When algorithm encounters an operator surrounded by two values within parentheses, it leaves the result on the value stack.
+	 * ( 1 + ( ( "2" + "3" ) * ( 4 * 5 ) ) ), as if the original input were:
+	 * ( 1 + ( ( 5 * (4 * 5 ) ) )
+	 * 
+	 * <li> Repeating the argument:( 1 + ( 5 * 20 ) ) --> ( 1 + 100 ) --> 101
+	 * 
+	 * @summary Extensions. More ops, precedence order, associativity
+	 * @param args
+	 */
 	public static void main(String [] args)
 	{
 		Stack<Double> vals=new Stack<>();
@@ -46,3 +56,16 @@ public class TwoStackAlgorithm {
 		System.out.println(vals.pop());
 	}
 }
+
+/* Stack-based programming languages
+ * 
+ * Observation 1. Dijkstra's two-stack algorithm computes the same value if the operator occurs after the two values.
+ * 				  ( 1 ( ( 2 3 + ) ( 4 5 * ) * ) + )
+ * 
+ * Observation 2. All of the parentheses are redundant!
+ * 				  1 2 3 + 4 5 * * +
+ * 
+ * Bottom line. Postfix or "reverse Polish" notation.
+ * Applications. Postscript, Forth, calculators, Java virtual machine
+ * 
+ */
