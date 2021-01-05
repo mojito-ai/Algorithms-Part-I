@@ -1,4 +1,6 @@
 # Algorithms-Part-I
+![Algorithms-Part-I](https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~algorithms-part1/XDP~COURSE!~algorithms-part1.jpeg)
+
 An ensemble of Data Structures &amp; Algorithms used in computational science. Designed in accordance with Princeton University MOOC (Coursera) &amp; programmed in Java.
 
 [Link to the course](https://online.princeton.edu/node/201)
