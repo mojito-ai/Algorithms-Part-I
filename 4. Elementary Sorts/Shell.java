@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
 * <h1>Shell Sort: Move entries more than one position at a time by h-sorting an array. h-sort array for decreasing 
 * sequence of values of h</h1>
@@ -51,6 +53,34 @@ public class Shell {
 	private static void exch(Comparable [] a, int i, int j)
 	{
 		Comparable swap=a[i];
+		a[i]=a[j];
+		a[j]=swap;
+	}
+	
+	public static void sort(Object [] a, Comparator comparator)
+	{
+		int N=a.length;
+		int h=1;
+		while(h<N/3)	
+			h=3*h+1;
+		while(h>=1) {
+			for(int i=h;i<N;i++){
+				for(int j=i;j>=h && less(comparator,a[j],a[j-h]);j-=h)
+						exch(a,j,j-h);
+			}
+			h=h/3;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static boolean less(Comparator c, Object v, Object w)
+	{
+		return c.compare(v,w) < 0;
+	}
+	
+	private static void exch(Object [] a, int i, int j)
+	{
+		Object swap=a[i];
 		a[i]=a[j];
 		a[j]=swap;
 	}
