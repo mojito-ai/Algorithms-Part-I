@@ -55,6 +55,8 @@ public class WQUPC {
 		 * 				temp=id[temp];
 		 * 				id[change]=i; //changing the previous node to point to root
 		 * 			}
+		 * 
+		 * 		return i;
 		 * }
 		 * 
 		 */
