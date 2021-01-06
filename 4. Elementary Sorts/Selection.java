@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
 * Selection Sort: In iteration "i", find index min of smallest remaining entry. Swap a[i] with a[min]
 * 
@@ -35,6 +37,32 @@ public class Selection {
 	private static void exch(Comparable [] a, int i, int j)
 	{
 		Comparable swap=a[i];
+		a[i]=a[j];
+		a[j]=swap;
+	}
+	
+	public static void sort(Object [] a, Comparator comparator)
+	{
+		int N=a.length;
+		int min=0;
+		for(int i=0;i<N;i++){
+			min=i;
+			for(int j=i+1;j<N;j++)
+				if(less(comparator,a[j],a[min]))
+					min=j;
+			exch(a,i,min);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static boolean less(Comparator c, Object v, Object w)
+	{
+		return c.compare(v,w) < 0;
+	}
+	
+	private static void exch(Object [] a, int i, int j)
+	{
+		Object swap=a[i];
 		a[i]=a[j];
 		a[j]=swap;
 	}
