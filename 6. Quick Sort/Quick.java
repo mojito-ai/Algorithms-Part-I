@@ -1,5 +1,5 @@
 import edu.princeton.cs.algs4.StdRandom;
-
+import edu.princeton.cs.algs4.Insertion;
 /**
 * <h1>Quick Sort: One of the most important algorithms of 20th century. Java uses this to sort for objects. Developed by
 * 				  Charles Anthony and Richard Hoare</h1>
@@ -18,7 +18,7 @@ import edu.princeton.cs.algs4.StdRandom;
 * <li>Equal keys: When duplicates present, it is better to stop at equal keys.
 * 
 * @author  Mohit Sharma
-* @version 2.0
+* @version 3.0
 * @since   07-01-2021
 */
 
@@ -76,7 +76,12 @@ public class Quick {
 	
 	private static void sort(Comparable [] a, int lo, int hi)
 	{
-		if(hi<=lo)	return;
+		if(hi<=lo+7-1)						//cutoff to insertion sort for small subarrays
+			{
+				Insertion.sort(a,lo,hi);
+				return;
+			}
+		
 		int j=partition(a,lo,hi);
 		sort(a,lo,j-1);
 		sort(a,j+1,hi);
