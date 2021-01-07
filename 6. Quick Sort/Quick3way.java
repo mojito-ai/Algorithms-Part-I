@@ -1,6 +1,6 @@
 import edu.princeton.cs.algs4.StdRandom;
 /**
-* <h1>Quick3way :In case of duplicate keys, Quicksort may take ~N�/2 time (when not stopping at equal elements)
+* <h1>Quick3way :In case of duplicate keys, Quicksort may take ~N²/2 time (when not stopping at equal elements)
 * 				 and time ~NlgN (when stopping at equal keys to partitioning item)</h1>
 * 
 * <li>Plan: Partition array into 3 parts so that
@@ -56,6 +56,14 @@ public class Quick3way {
 		a[j]=swap;
 	}
 	
+	/**
+	 * Emperical analysis:
+	 * <li>If there are n-distinct keys and the ith one occurs Xi times, any compare based sorting algorithm uses atleast
+	 * <li>lg(N!/(X1!*X2!-----Xn!) ~ -∑Xilg(Xi/N)
+	 * <li>Quicksort with 3-way partitioning is entropy optimal.
+	 * 
+	 * @param a
+	 */
 	public static void sort(Comparable [] a)
 	{
 		StdRandom.shuffle(a);
