@@ -10,6 +10,7 @@ import edu.princeton.cs.algs4.Insertion;
 * <li>Analysis: ~NlgN compares & ~6NlgN array exchanges
 * <li>Merge Sort is stable
 * <li>Only N-1 compares used if optimization used: a[mid]<=a[mid+1] --> return
+* <li>First draft of MergeSort: EDVAC by John Von Neumann
 * 
 * @author  Mohit Sharma
 * @version 2.0
