@@ -1,0 +1,26 @@
+Many sorting algorithms to choose from:
+
+Internal sorts.
+	・Insertion sort, selection sort, bubblesort, shaker sort.
+	・Quicksort, mergesort, heapsort, samplesort, shellsort.
+	・Solitaire sort, red-black sort, splaysort, Yaroslavskiy sort, psort, ...
+
+External sorts. Poly-phase mergesort, cascade-merge, oscillating sort.
+
+String/radix sorts. Distribution, MSD, LSD, 3-way string quicksort.
+
+Parallel sorts.
+	・Bitonic sort, Batcher even-odd sort.
+	・Smooth sort, cube sort, column sort.
+	・GPUsort.
+	
+Applications have diverse attributes.
+	・Stable?
+	・Parallel?
+	・Deterministic?
+	・Keys all distinct?
+	・Multiple key types?
+	・Linked list or arrays?
+	・Large or small items?
+	・Is your array randomly ordered?
+	・Need guaranteed performance?
