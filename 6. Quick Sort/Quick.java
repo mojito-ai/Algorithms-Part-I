@@ -82,6 +82,11 @@ public class Quick {
 				return;
 			}
 		
+		//Median of sample: Best choice of pivot
+		//Estimate true median by taking median of sample.
+		int m=medianof3(a,lo,lo+(hi-lo)/2,hi); 
+		exch(a,lo,m);
+		
 		int j=partition(a,lo,hi);
 		sort(a,lo,j-1);
 		sort(a,j+1,hi);
@@ -98,6 +103,16 @@ public class Quick {
 		Comparable swap=a[i];
 		a[i]=a[j];
 		a[j]=swap;
+	}
+	
+	private static int medianof3(Comparable [] a, int i, int j, int k)
+	{
+		if(less(a[j],a[i])!=less(a[k],a[i]))
+			return i;
+		else if(less(a[i],a[j])!=less(a[k],a[j]))
+			return j;
+		else 
+			return k;	
 	}
 	
 	public static void show(Comparable[] a) {
