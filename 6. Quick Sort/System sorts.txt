@@ -1,0 +1,11 @@
+System Sorts:
+
+Sorting algorithms are used in broad variety of applications
+	1. Data compression
+	2. Computer graphics (Convex hull)
+	3. Computational biology
+	4. Load balancing on a parallel computer
+	
+Java uses tuned Quick-sort for primitive types; tuned Merge-sort for objects -> It's the designer's assessment that if a
+programmer is using objects, maybe space doesn't critically matter and if the programmer is using primitive types, maybe 
+performance is the most important thing.
