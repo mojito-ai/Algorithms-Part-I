@@ -18,7 +18,7 @@ import edu.princeton.cs.algs4.Insertion;
 * <li>Equal keys: When duplicates present, it is better to stop at equal keys.
 * 
 * @author  Mohit Sharma
-* @version 3.0
+* @version 4.0
 * @since   07-01-2021
 */
 
