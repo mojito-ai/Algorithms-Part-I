@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.StdRandom;
 
 /**
 * <h1>Quick Sort: One of the most important algorithms of 20th century. Java uses this to sort for objects. Developed by
@@ -10,25 +11,30 @@
 * <li>No smaller entry to the right of j
 * <li>Sort each piece recursively.
 * 
+* <br>Performance Analysis:
+* <li>Partitioning in place.
+* <li>Terminating the loop: Trickier than it seems. (i==hi) condition is needed but the (j==lo) condition is redundant.
+* <li>Preserving randomness: For performance guarantee.
+* <li>Equal keys: When duplicates present, it is better to stop at equal keys.
+* 
 * @author  Mohit Sharma
-* @version 1.0
+* @version 2.0
 * @since   07-01-2021
 */
 
 @SuppressWarnings("rawtypes")
 public class Quick {
 	
+	/**
+	 * Repeat until i & j pointers cross:
+	 * <li>Scan i from left to right so long as (a[i]<a[lo])
+	 * <li>Scan j from right to left so long as (a[j]>a[lo])
+	 * <li>Exchange a[i] with a[j]
+	 * <li>When pointers cross, exchange a[lo] with a[j]
+	 */
+	
 	private static int partition(Comparable [] a, int lo, int hi)
 	{
-		/**
-		 * Repeat until i & j pointers cross:
-		 * <li>Scan i from left to right so long as (a[i]<a[lo])
-		 * <li>Scan j from right to left so long as (a[j]>a[lo])
-		 * <li>Exchange a[i] with a[j]
-		 * <li>When pointers cross, exchange a[lo] with a[j]
-		 * 
-		 */
-		
 		int i=lo;	int j=hi+1;
 		while(true)
 		{
@@ -50,8 +56,20 @@ public class Quick {
 		return j;	//return index of item now known to be in place
 	}
 	
+	/**
+	 * <li>Best case: Number of compares ~NlgN
+	 * <li>Worst case: Number of compares ~N²/2
+	 * <li>Average case: Number of compares ~2NlnN & exchanges is ~0.5NlnN
+	 * <br>
+	 * C(N) satisfies recurrence C0=C1=0 and for N>=2
+	 * <li>Cn=(N+1)+(C0+Cn-1)/N+(C1+Cn-2)/N+-------------
+	 * <li>By telescoping we find Cn~1.39NlgN
+	 * <li>Random shuffle to escape this
+	 * @param a
+	 */
 	public static void sort(Comparable [] a)
 	{
+		StdRandom.shuffle(a); //Random shuffling necessary to save from worst case
 		int N=a.length;
 		sort(a,0,N-1);
 	}
