@@ -9,12 +9,25 @@ import edu.princeton.cs.algs4.StdRandom;
 * <li>Used in order statistics
 * 
 * @author  Mohit Sharma
-* @version 1.0
+* @version 2.0
 * @since   07-01-2021
 */
 
 @SuppressWarnings("rawtypes")
 public class QuickSelect {
+
+	/**
+	 * Emperical Analysis: Takes linear time on average.
+	 * 
+	 * <li>Method 1: N+N/2+N/4+-------+1 ~2N compares as each partition step splits array proportionally.
+	 * 
+	 * <li> Method 2: Formal analysis similar to quick-sort analysis yields
+	 * <li>Cn=2N+2kln(N/k)+2(N-k)ln(N/(N-k)) --> (2+2ln2)N to find the median
+	 * 
+	 * @param a
+	 * @param k
+	 * @return
+	 */
 
 	public static Comparable select(Comparable [] a, int k)
 	{
