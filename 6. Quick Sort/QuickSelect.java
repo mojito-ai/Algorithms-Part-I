@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdRandom;
 * <li>Plan: Partition array same as Quick Sort
 * <li>Repeat in one sub-array, depending on j, finished when j equals k
 * 
-* <br>Performance Analysis:
+* <br>Performance Analysis: (2+2ln2)N to find the median
 * <li>Used in order statistics
 * 
 * @author  Mohit Sharma
