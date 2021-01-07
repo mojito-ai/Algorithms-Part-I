@@ -1,11 +1,27 @@
 System Sorts:
 
 Sorting algorithms are used in broad variety of applications
-	1. Data compression
-	2. Computer graphics (Convex hull)
-	3. Computational biology
-	4. Load balancing on a parallel computer
+	1. Sort a list of names.
+	2. Organise an MP3 library.     					obvious applications
+   	3. Display Google PageRank results.
+    	4. List RSS feed in reverse chronological order. 
+	
+	5. Data compression
+	6. Computer graphics (Convex hull)					non obvious applications
+	7. Computational biology
+	8. Load balancing on a parallel computer
+	
+	9.Find the median.
+	10. Identify statistical outliers.					problems that become easy once sorted
+	11. Binary search in a database.
+	12. Find duplicates in a mailing list.
 	
 Java uses tuned Quick-sort for primitive types; tuned Merge-sort for objects -> It's the designer's assessment that if a
 programmer is using objects, maybe space doesn't critically matter and if the programmer is using primitive types, maybe 
 performance is the most important thing.
+
+Arrays.sort().
+	・Has different method for each primitive type.
+	・Has a method for data types that implement Comparable.
+	・Has a method that uses a Comparator.
+	・Uses tuned quicksort for primitive types; tuned mergesort for objects.
