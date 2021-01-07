@@ -1,0 +1,27 @@
+AT&T Bell Labs (1991). Allan Wilks and Rick Becker discovered that a qsort() call that should have taken seconds was 
+taking minutes.
+
+At the time, almost all qsort() implementations based on those in:
+	1. Version 7 Unix (1979): quadratic time to sort organ-pipe arrays.
+	2. BSD Unix (1983): quadratic time to sort random arrays of 0s and 1s
+	
+Solution: 
+
+Basic algorithm = quicksort.
+	・Cutoff to insertion sort for small subarrays.
+	・Partitioning scheme: Bentley-McIlroy 3-way partitioning.
+	・Partitioning item.
+		– small arrays: middle entry
+		– medium arrays: median of 3
+		– large arrays: Tukey's Ninther
+		
+Tukey's Ninther: 
+Median of the median of 3 samples, each of 3 entries. Approximates the median of 9 entries & uses at most 12 compares
+
+e.g. "R" L "A" P "M" C "G" A "X" Z "K" R "B" R "J" J "E" 		//9 evenly spaced entries
+
+	R A M	G X K	B J E
+	
+	M K E
+	
+	K
