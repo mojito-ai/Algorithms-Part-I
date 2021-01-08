@@ -2,10 +2,10 @@
 * <h1>Heap Sort: Create max-heap with all N keys. Repeatedly remove the maximum key</h1>
 * 
 * <li>Heap construction: Build max heap using bottom up method. Start with an array and work from bottom up to make sure heap ordered.
-* <li>Sortdown: Repeatedly delete the largest remaining item.
+* <li>Sort-down: Repeatedly delete the largest remaining item.
 * 
 * @author  Mohit Sharma
-* @version 1.0
+* @version 2.0
 * @since   08-01-2021
 * 
 */
@@ -32,7 +32,7 @@ public class Heap {
 		while(N>1)
 		{
 			exch(pq,1,N);
-			sink(pq,1,N--);
+			sink(pq,1,--N);
 		}
 	}
 	
