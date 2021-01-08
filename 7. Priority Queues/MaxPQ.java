@@ -6,6 +6,7 @@
 * <li>Priority Queue: Remove the largest (or smallest) item
 * <li>Max oriented PQ
 * <li>Generic items need to be comparable
+* <li>Analysis: insert=lgN, delete max=lgN, max=1
 * 
 * @author  Mohit Sharma
 * @version 1.0
@@ -15,6 +16,16 @@
 
 public class MaxPQ<Key extends Comparable<Key>> 
 {
+	/**
+	 *	Properties:
+	 *
+	 * <li> Largest key is a[1], which is the root of binary tree.
+	 * <li> Can use array indices to move through tree.
+	 * <li> Parent of node at k is k/2.
+	 * <li> Children of node at are at 2k & 2k+1
+	 * 
+	 */
+	
 	private Key [] pq;
 	private int N=0;
 	
