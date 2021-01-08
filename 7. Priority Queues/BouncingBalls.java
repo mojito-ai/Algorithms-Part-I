@@ -33,7 +33,7 @@ public class BouncingBalls {
 				balls[i].move(0.5);
 				balls[i].draw();
 			}
-			StdDraw.show(50);
+			StdDraw.show(1);
 		}
 	}
 
