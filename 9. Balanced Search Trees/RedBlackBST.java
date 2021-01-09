@@ -93,7 +93,7 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 		}
 		
 		/**
-		 * Color Flip: Recolor to split a (temporary) 4-Node
+		 * Colour Flip: Re-color to split a (temporary) 4-Node
 		 */
 		
 		private void flipColors(Node h)
@@ -148,8 +148,8 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 			else if(cmp>0)	h.right=put(h.right,key,val);
 			else if(cmp==0)	h.val=val;
 			
-			if(isRed(h.right) && !isRed(h.left))	rotateLeft(h);
-			if(isRed(h.left) && isRed(h))			rotateRight(h);
+			if(isRed(h.right) && !isRed(h.left))	h=rotateLeft(h);
+			if(isRed(h.left) && isRed(h))			h=rotateRight(h);
 			if(isRed(h.left) && isRed(h.right))		flipColors(h);
 			
 			return h;
