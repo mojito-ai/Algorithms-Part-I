@@ -1,4 +1,3 @@
-import ST.Node;
 import edu.princeton.cs.algs4.Queue;
 
 /**
@@ -13,7 +12,7 @@ import edu.princeton.cs.algs4.Queue;
 * <li>Developed at XeroxPARC: There was only red ink in the laser printer hence the name.
 * 
 * @author  Mohit Sharma
-* @version 1.0
+* @version 2.0
 * @since   09-01-2021
 * 
 */
@@ -37,6 +36,7 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 			private int count;
 			private boolean color;
 			
+			@SuppressWarnings("unused")
 			Node(Key key, Value val, int count)
 			{
 				this.key=key;
@@ -149,7 +149,7 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 			else if(cmp==0)	h.val=val;
 			
 			if(isRed(h.right) && !isRed(h.left))	h=rotateLeft(h);
-			if(isRed(h.left) && isRed(h))			h=rotateRight(h);
+			if(isRed(h.left) && isRed(h.left.left))	h=rotateRight(h);
 			if(isRed(h.left) && isRed(h.right))		flipColors(h);
 			
 			return h;
