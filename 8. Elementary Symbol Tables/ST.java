@@ -41,15 +41,41 @@ public class ST<Key extends Comparable<Key>,Value>
 		}
 	}
 	
-	void put(Key key, Value val)	//put key-value pair in the table
+	/**
+	 * <li>Insert: If less, go left.
+	 * <li>If greater, go right.
+	 * <li>If null, insert the key-value pair</li>
+	 * 
+	 * Cost: Number of compares is equal to 1+depth of Node
+	 * 
+	 * @param key
+	 * @param val
+	 */
+	
+	public void put(Key key, Value val)	//put key-value pair in the table
 	{
-		
+		root=put(root,key,val);
+	}
+	
+	private Node put(Node x, Key key, Value val) //recursive code
+	{
+		if(x==null)		return new Node(key,val);
+		int cmp=key.compareTo(x.key);
+		if(cmp<0)
+			x.left=put(x.left,key,val);
+		else if(cmp>0)
+			x.right=put(x.right,key,val);
+		else if(cmp==0)
+			x.val=val;
+		return x;
 	}
 	
 	/**
 	 * <li>Search: If less, go left. 
 	 * <li>If greater, go right.
-	 * <li>If equal,search hit
+	 * <li>If equal,search hit</li>
+	 * 
+	 * Cost: Number of compares if 1+depth of Node
 	 * 
 	 * @param key
 	 * @return
