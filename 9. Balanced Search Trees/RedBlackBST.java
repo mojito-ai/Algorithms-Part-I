@@ -10,6 +10,8 @@ import edu.princeton.cs.algs4.Queue;
 * <li>Every path from the root to a null link has same number of black lines.
 * <li>Red lines lean left.
 * 
+* <li>Developed at XeroxPARC: There was only red ink in the laser printer hence the name.
+* 
 * @author  Mohit Sharma
 * @version 1.0
 * @since   09-01-2021
@@ -40,6 +42,13 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 				this.key=key;
 				this.val=val;
 				this.count=count;
+			}
+			
+			Node(Key key, Value val, boolean color)
+			{
+				this.key=key;
+				this.val=val;
+				this.color=color;
 			}
 		}
 		
@@ -125,24 +134,25 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 		{	
 		/*
 		 * Tree shape: Many BSTs can correspond to the same set of keys.
-		 * <li>Number of compares for search/insert is equal to 1+depth of node.
-		 * <li>Worst case when keys entered in order
+		 * <li>Number of compares for search/insert is equal to <=2lgN in worst case
+		 * <li>Never two red links in a row.
 		 */
 			root=put(root,key,val);
 		}
 		
-		private Node put(Node x, Key key, Value val) //recursive code
+		private Node put(Node h, Key key, Value val) //recursive code
 		{
-			if(x==null)		return new Node(key,val,1);
-			int cmp=key.compareTo(x.key);
-			if(cmp<0)
-				x.left=put(x.left,key,val);
-			else if(cmp>0)
-				x.right=put(x.right,key,val);
-			else if(cmp==0)
-				x.val=val;
-			x.count=1+size(x.left)+size(x.right);
-			return x;
+			if(h==null)	return new Node(key,val,RED);
+			int cmp=key.compareTo(h.key);
+			if(cmp<0)	h.left=put(h.left,key,val);
+			else if(cmp>0)	h.right=put(h.right,key,val);
+			else if(cmp==0)	h.val=val;
+			
+			if(isRed(h.right) && !isRed(h.left))	rotateLeft(h);
+			if(isRed(h.left) && isRed(h))			rotateRight(h);
+			if(isRed(h.left) && isRed(h.right))		flipColors(h);
+			
+			return h;
 		}
 		
 		/**
