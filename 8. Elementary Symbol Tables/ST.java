@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.Queue;
+
 /**
 * <h1>Symbol Table: Insert a value with specified key. Given a key, search for the corresponding value.</h1>
 * 
@@ -227,5 +229,25 @@ public class ST<Key extends Comparable<Key>,Value>
 		else if(cmp>0)	return 1+size(x.left)+rank(x.right,key);
 		else return size(x.left);
 	}
+	
+	/**
+	 * Inorder Traversal: Traverse left subtree -> Enqueue key -> Traverse right subtree
+	 * 
+	 * <li> Yields keys in ascending order
+	 */
 
+	public Iterable<Key> Keys()
+	{
+		Queue<Key> q=new Queue<>();
+		Inorder(root,q);
+		return q;
+	}
+	
+	private void Inorder(Node x, Queue<Key> q)
+	{
+		if(x==null)	return;
+		Inorder(x.left,q);
+		q.enqueue(x.key);
+		Inorder(x.right,q);
+	}
 }
