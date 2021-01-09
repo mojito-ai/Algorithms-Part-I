@@ -337,4 +337,9 @@ public class ST<Key extends Comparable<Key>,Value>
 		x.count=size(x.left)+size(x.right)+1;
 		return x;
 	}
+	
+	/*
+	 *Repeated Insertion and deletion leads to unsymmetric trees. Analysis goes to (N)^0.5 per operation. Also if the input
+	 *is in order then worst case is occured.
+	 */
 }
