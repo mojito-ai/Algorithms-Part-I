@@ -126,18 +126,28 @@ public class ST<Key extends Comparable<Key>,Value>
 	
 	public Key min()						//Smallest key
 	{
-		Node x=root;
+		Node t=root;
+		Node x=min(t);
+		return x.key;
+	}
+	private Node min(Node x)
+	{
 		while(x.left!=null)
 			x=x.left;
-		return x.key;
+		return x;
 	}
 	
 	public Key max()						//Largest key
 	{
-		Node x=root;
+		Node t=root;
+		Node x=max(t);
+		return x.key;
+	}
+	private Node max(Node x)
+	{
 		while(x.right!=null)
 			x=x.right;
-		return x.key;
+		return x;
 	}
 	
 	/**
@@ -257,6 +267,7 @@ public class ST<Key extends Comparable<Key>,Value>
 	 * <li> Replace that node by its right link
 	 * <li> Update subtree counts.
 	 * 
+	 * Can also use the tomb-stone method for deleting but leads to memory overload
 	 */
 	
 	public void deleteMin()				//delete smallest key
@@ -277,6 +288,7 @@ public class ST<Key extends Comparable<Key>,Value>
 	 * <li> Replace that node by its left link
 	 * <li> Update subtree counts.
 	 * 
+	 * Can also use the tomb-stone method for deleting but leads to memory overload
 	 */
 	public void deleteMax()				//delete largest key
 	{
@@ -287,6 +299,42 @@ public class ST<Key extends Comparable<Key>,Value>
 		if(x.right==null)	return x.left;
 		x.right=deleteMax(x.right);
 		x.count=1+size(x.left)+size(x.right);
+		return x;
+	}
+	
+	/**
+	 * Hibbard Deletion: To delete a node with key k, search for node t containing key k.
+	 * 
+	 * <li> Case 0: 0 children -> Delete t by setting the parent link to null.
+	 * <li> Case 1: 1 children -> Delete t by replacing the parent link like in deleteMin & deleteMax
+	 * <li> Case 2L 2 children -> Find successor x of t. (x has no left child)
+	 * 						      Delete the minimum in t's right subtree. (But dont garbage collect x)
+	 * 						      Put x in t's spot (Still a BST)
+	 * 
+	 * 
+	 * @param key
+	 */
+	
+	public void delete(Key key)
+	{
+		root=delete(root,key);
+	}
+	private Node delete(Node x, Key key)
+	{
+		if(x==null)	return null;
+		int cmp=key.compareTo(x.key);
+		if(cmp<0)	x.left=delete(x.left,key);
+		else if(cmp>0)	x.right=delete(x.right,key);
+		else {
+			if(x.right==null)	return x.left;
+			if(x.left==null)	return x.right;
+			
+			Node t=x;
+			x=min(t.right);
+			x.right=deleteMin(t.right);
+			x.left=t.left;
+		}
+		x.count=size(x.left)+size(x.right)+1;
 		return x;
 	}
 }
