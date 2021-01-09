@@ -124,9 +124,39 @@ public class ST<Key extends Comparable<Key>,Value>
 		return x.key;
 	}
 	
+	/**
+	 * Floor: largest key<=given key
+	 * <li>Case 1: k is equal to the key at root -> The floor of k is k
+	 * <li>Case 2: k is less than the key at root -> The floor of k is in the left subtree.
+	 * <li>Case 3: k is greater than the key at root -> The floor of k lies in the right subtree if there is any key<=k 
+	 * 													in right subtree. Otherwise it is the key at root.
+	 * 
+	 * @param key
+	 * @return
+	 */
+	
 	public Key floor(Key key)				//largest key less than or equal to the given key
 	{
-		
+		Node x=floor(root,key);
+		if(x!=null)
+			return x.key;
+		else return null;
+	}
+	
+	private Node floor(Node x, Key key)
+	{
+		if(x==null)	return null;
+		int cmp=key.compareTo(x.key);
+		if(cmp==0)
+			return x;
+		else if(cmp<0)
+			return floor(x.left,key);
+		else
+		{
+			Node t=floor(x.right,key);
+			if(t!=null)	return t;
+			else return x;
+		}
 	}
 	
 	public Key ceiling(Key key)				//smallest key greater than or equal to the given key
