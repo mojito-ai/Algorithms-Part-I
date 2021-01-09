@@ -1,0 +1,30 @@
+2-3 Trees: Guarantees Performance
+
+1. Allows 1 or 2 keys per node
+	a. 2 Node: 1 key, 2 children
+	b. 3 Node: 2 key, 3 children
+	
+2. Property:
+	a. Perfect Balance: Each path from root to the null link has same length
+	b. Symmetric order: Inorder Traversal yields keys in ascending order.
+	
+3. Searching: 
+	a. Compare search key with key in node
+	b. Find interval containing search key
+	c. Follow associated link (recursively)
+	
+4. Insertion:
+	a. Insert into a 2-Node at bottom: Search for key, as usual. Replace 2-Node with 3-Node.
+	b. Insert into a 3-Node at bottom: Add new key to 3-Node to make a temporary 4 Node. Move the middle key into the parent.
+									   Repeat up the tree, as necessary. If you reach the root and its a 4-Node, split it into three 2-Nodes.
+									   
+5. Construction:
+	a. Splitting of a 4-Node into a 3-Node is a local transformation.
+	b. Constant number of operations.
+	c. Maintains symmetric order and perfect balance at every addition/insertion.
+
+6. Performance:
+	a. Worst case: lgN (all 2 nodes)
+	b. Best case: lg₃N (all 3 nodes)
+	c. Between 12 to 20 for a million nodes.
+	d. Between 18 to 30 for a billion nodes
