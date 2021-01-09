@@ -54,6 +54,16 @@ public class ST<Key extends Comparable<Key>,Value>
 		}
 	}
 	
+	public int size()  					//Number of key-value pairs
+	{
+		return size(root);
+	}
+	private int size(Node x)
+	{
+		if(x==null)	return 0;
+		else return x.count;
+	}
+	
 	/**
 	 * <li>Insert: If less, go left.
 	 * <li>If greater, go right.
@@ -64,17 +74,6 @@ public class ST<Key extends Comparable<Key>,Value>
 	 * @param key
 	 * @param val
 	 */
-	
-	public int size()  					//Number of key-value pairs
-	{
-		return size(root);
-	}
-	
-	private int size(Node x)
-	{
-		if(x==null)	return 0;
-		else return x.count;
-	}
 	
 	public void put(Key key, Value val)	//put key-value pair in the table
 	{	
