@@ -38,15 +38,17 @@ public class ST<Key extends Comparable<Key>,Value>
 	
 	private class Node
 	{
-		Key key;
-		Value val;
-		Node left;
-		Node right;
+		private Key key;
+		private Value val;
+		private Node left;
+		private Node right;
+		private int count;
 		
-		Node(Key key, Value val)
+		Node(Key key, Value val, int count)
 		{
 			this.key=key;
 			this.val=val;
+			this.count=count;
 		}
 	}
 	
@@ -61,6 +63,17 @@ public class ST<Key extends Comparable<Key>,Value>
 	 * @param val
 	 */
 	
+	public int size()  					//Number of key-value pairs
+	{
+		return size(root);
+	}
+	
+	private int size(Node x)
+	{
+		if(x==null)	return 0;
+		else return x.count;
+	}
+	
 	public void put(Key key, Value val)	//put key-value pair in the table
 	{	
 	/*
@@ -73,7 +86,7 @@ public class ST<Key extends Comparable<Key>,Value>
 	
 	private Node put(Node x, Key key, Value val) //recursive code
 	{
-		if(x==null)		return new Node(key,val);
+		if(x==null)		return new Node(key,val,1);
 		int cmp=key.compareTo(x.key);
 		if(cmp<0)
 			x.left=put(x.left,key,val);
@@ -81,6 +94,7 @@ public class ST<Key extends Comparable<Key>,Value>
 			x.right=put(x.right,key,val);
 		else if(cmp==0)
 			x.val=val;
+		x.count=1+size(x.left)+size(x.right);
 		return x;
 	}
 	
@@ -192,6 +206,26 @@ public class ST<Key extends Comparable<Key>,Value>
 			if(t!=null)	return t;
 			else return x;
 		}
+	}
+	
+	/**
+	 * Rank: How many keys <= k
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public int rank(Key key)
+	{
+		return rank(root,key);
+	}
+	
+	private int rank(Node x, Key key)
+	{
+		if(x==null)	return 0;
+		int cmp=key.compareTo(x.key);
+		if(cmp<0)	return rank(x.left,key);
+		else if(cmp>0)	return 1+size(x.left)+rank(x.right,key);
+		else return size(x.left);
 	}
 
 }
