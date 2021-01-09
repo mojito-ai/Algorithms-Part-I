@@ -250,4 +250,43 @@ public class ST<Key extends Comparable<Key>,Value>
 		q.enqueue(x.key);
 		Inorder(x.right,q);
 	}
+	
+	/**
+	 * Delete the Minimum: 
+	 * <li> Go left until finding a node with null left link
+	 * <li> Replace that node by its right link
+	 * <li> Update subtree counts.
+	 * 
+	 */
+	
+	public void deleteMin()				//delete smallest key
+	{
+		root=deleteMin(root);
+	}
+	private Node deleteMin(Node x)
+	{
+		if(x.left==null)	return x.right;
+		x.left=deleteMin(x.left);
+		x.count=1+size(x.left)+size(x.right);
+		return x;
+	}
+	
+	/**
+	 * Delete the Maximum: 
+	 * <li> Go right until finding a node with null right link
+	 * <li> Replace that node by its left link
+	 * <li> Update subtree counts.
+	 * 
+	 */
+	public void deleteMax()				//delete largest key
+	{
+		root=deleteMax(root);
+	}
+	private Node deleteMax(Node x)
+	{
+		if(x.right==null)	return x.left;
+		x.right=deleteMax(x.right);
+		x.count=1+size(x.left)+size(x.right);
+		return x;
+	}
 }
