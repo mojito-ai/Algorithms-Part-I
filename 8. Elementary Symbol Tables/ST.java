@@ -46,8 +46,25 @@ public class ST<Key extends Comparable<Key>,Value>
 		
 	}
 	
-	Value get(Key key)				//Value passed with Key(Null if key is absent
+	/**
+	 * <li>Search: If less, go left. 
+	 * <li>If greater, go right.
+	 * <li>If equal,search hit
+	 * 
+	 * @param key
+	 * @return
+	 */
+	
+	public Value get(Key key)				//Value passed with Key(Null if key is absent)
 	{
-		
+		Node x=root;
+		while(x!=null)
+		{
+			int cmp=key.compareTo(x.key);
+			if(cmp<0)	x=x.left;
+			else if(cmp>0)	x=x.right;
+			else if(cmp==0)	return x.val;
+		}
+		return null;
 	}
 }
