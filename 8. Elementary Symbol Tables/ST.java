@@ -16,9 +16,29 @@
 
 public class ST<Key extends Comparable<Key>,Value> 
 {
-	ST() 					//Create an ordered Symbol Table
+	/**
+	 * Binary Search Trees: A binary tree in symmetric order. In binary heaps we talked about implicit representation of 
+	 * trees within array. For BST we talk about actual explicit representation of tree data structure.
+	 * 
+	 * <li>Symmetric order: Each node has a key and a value. And every node is larger than all the keys on its left subtree.
+	 * And its is smaller than all the keys on the right subtree.
+	 * <li>A BST is a reference to the Root Node. A Node comprises of: Key, Value, Left link & Right link
+	 * 
+	 */
+	private Node root;		//Root of BST
+	
+	private class Node
 	{
+		Key key;
+		Value val;
+		Node left;
+		Node right;
 		
+		Node(Key key, Value val)
+		{
+			this.key=key;
+			this.val=val;
+		}
 	}
 	
 	void put(Key key, Value val)	//put key-value pair in the table
