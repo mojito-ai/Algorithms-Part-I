@@ -27,6 +27,15 @@ public class ST<Key extends Comparable<Key>,Value>
 	 */
 	private Node root;		//Root of BST
 	
+	/**
+	 * Correspondence between BSTs and quicksort partitioning: Exactly same if array has no duplicate keys.
+	 * <li>Analysis: If N-distinct keys are inserted in a BST in random order, the expected number of compares for a 
+	 * 				 search/insert is ~2lnN or ~1.38lgN
+	 * <li>Reed 2003: Expected height of tree is ~4.311lnN when N distinct keys are inserted in random order
+	 * <li>Worst case height still N
+	 *
+	 */
+	
 	private class Node
 	{
 		Key key;
@@ -53,7 +62,12 @@ public class ST<Key extends Comparable<Key>,Value>
 	 */
 	
 	public void put(Key key, Value val)	//put key-value pair in the table
-	{
+	{	
+	/*
+	 * Tree shape: Many BSTs can correspond to the same set of keys.
+	 * <li>Number of compares for search/insert is equal to 1+depth of node.
+	 * <li>Worst case when keys entered in order
+	 */
 		root=put(root,key,val);
 	}
 	
@@ -93,4 +107,31 @@ public class ST<Key extends Comparable<Key>,Value>
 		}
 		return null;
 	}
+	
+	public Key min()						//Smallest key
+	{
+		Node x=root;
+		while(x.left!=null)
+			x=x.left;
+		return x.key;
+	}
+	
+	public Key max()						//Largest key
+	{
+		Node x=root;
+		while(x.right!=null)
+			x=x.right;
+		return x.key;
+	}
+	
+	public Key floor(Key key)				//largest key less than or equal to the given key
+	{
+		
+	}
+	
+	public Key ceiling(Key key)				//smallest key greater than or equal to the given key
+	{
+		
+	}
+
 }
