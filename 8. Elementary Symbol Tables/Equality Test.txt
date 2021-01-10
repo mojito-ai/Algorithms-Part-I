@@ -1,0 +1,12 @@
+Equality Test: 
+
+All classes inherit a method equals()
+Java Requirements: Matches the references x,y and z.
+
+1. Reflexive: p.equals(p) is true.
+2. Symmetric: p.equals(q) iff q.equals(p)
+3. Transitive: p.equals(q) and q.equals(r) then p.equals(r)
+4. Non-null: p.equals(null) is false
+
+Default implementation: (x==y) //do x & y refer to the same object? 
+
