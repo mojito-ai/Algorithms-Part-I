@@ -80,4 +80,34 @@ public class HashFunctions {
 		}
 	}
 	
+	/**
+	 * Horner's Method: To hash string of length L: h = s[0]*31^(L-1) + s[1]*31^(L-2) + -------- + s[L-2]*31^1 + s[L-1]*31^0
+	 * 
+	 * @author _CrY
+	 *
+	 */
+	@SuppressWarnings("unused")
+	private final class String{
+		/**
+		 * Performance optimization: Cache the hash value in an instance variable
+		 * Return cached value;
+		 * 
+		 */
+		private int hash=0;
+		private final char [] s;
+		String(char [] s)
+		{
+			this.s=s;
+		}
+		
+		public int hashCode()
+		{
+			int h=hash;
+			if(hash!=0)	return hash;
+			for(int i=0;i<s.length;i++)
+				h=s[i]*(31*h);
+			hash=h;
+			return hash;
+		}
+	}
 }
