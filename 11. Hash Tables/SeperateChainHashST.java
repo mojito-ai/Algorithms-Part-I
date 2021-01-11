@@ -77,4 +77,10 @@ public class SeperateChainHashST<Key, Value> {
 		st[i]=new Node(key,val,st[i]);
 	}
 	
+	/**
+	 * Delete: Easiest way to delete is to find key-value pair & remove it and reinsert all of the key-value pairs in the same
+	 * 		   cluster that appear after deleted key-value pair.
+	 * 
+	 * Alternative: Tomb-stone method or flagging
+	 */
 }
