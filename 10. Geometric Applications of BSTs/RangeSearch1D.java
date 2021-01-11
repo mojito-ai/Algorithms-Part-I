@@ -1,5 +1,3 @@
-import ST.Node;
-
 /**
 * <h1>1-D Range Search: (1-Key) Geometric Interpretation: Keys are points on a line. Find/Count points in a given 1-d interval</h1>
 *
@@ -18,10 +16,10 @@ import ST.Node;
 * 
 */
 
-public class OneDimRangeSearch<Key extends Comparable<Key>, Value> extends ST<Key, Value> {
+public class RangeSearch1D<Key extends Comparable<Key>, Value> extends ST<Key, Value> {
 	
 	private ST<Key, Value> st;
-	public OneDimRangeSearch(ST<Key, Value> st)
+	public RangeSearch1D(ST<Key, Value> st)
 	{
 		this.st=st;
 	}
@@ -48,23 +46,4 @@ public class OneDimRangeSearch<Key extends Comparable<Key>, Value> extends ST<Ke
 	 * <li> Running time: R+lgN where R is the number of keys that match.
 	 * 
 	 */
-	
-	public Iterable<Key> search(Key lo, Key hi)
-	{
-		Queue<Key> q=new Queue<>();
-		Node x=st.root;
-		search(q, x, lo, hi);
-		return q;
-	}
-	
-
-	private void search(Queue<Key> q, Node x, Key lo, Key hi)				
-	{
-		
-		
-	}
-	
-	
-	
-
 }
