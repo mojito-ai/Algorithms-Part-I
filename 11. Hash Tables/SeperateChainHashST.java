@@ -52,6 +52,19 @@ public class SeperateChainHashST<Key, Value> {
 		return null;
 	}
 	
+	/**
+	 * Analysis: Under the uniform hashing assumption, probability that the number of keys in a list is within a constant 
+	 * factor of N/M is extremely close to 1.
+	 * 
+	 * Proof: Distribution obeys Binomial Distribution
+	 * Consequence: Number of probes for search/insert is N/M
+	 * 
+	 * Average case: Insert=3.5, Search hit=3.5, Delete=3.5
+	 * Worst case: Insert=lg N, Search hit=lg N, Delete=lg N
+	 * @param key
+	 * @param val
+	 */
+	
 	public void put(Key key, Value val)
 	{
 		int i=hash(key);
