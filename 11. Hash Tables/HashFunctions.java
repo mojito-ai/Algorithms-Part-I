@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.Date;
+
 /**
 * <h1>Hash Functions: Method for computing array index from key. Scramble the keys uniformly to produce a table index</h1>
 *
@@ -109,5 +111,62 @@ public class HashFunctions {
 			hash=h;
 			return hash;
 		}
+	}
+	
+	@SuppressWarnings("unused")
+	public final class Transaction implements Comparable<Transaction> {
+		private final String who;
+		private final Date when;
+		private final double amount;
+		
+		/**
+		 * Combine every significant field with 31x+y rule
+		 * <li> If field is primitive, use wrapper hashCode()
+		 * <li> If field null, return 0
+		 * <li> If field is a reference type, use hashCode()
+		 * <li> If field is an array, apply to each entry -> array.deephashCode()</li>
+		 * Keys are bit-sstring, "universal" hash functions exist
+		 * @param who
+		 * @param when
+		 * @param amount
+		 */
+		Transaction(String who, Date when, double amount)
+		{
+			this.who=who;
+			this.when=when;
+			this.amount=amount;
+		}
+
+		@Override
+		public int compareTo(Transaction o) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		public boolean equals(Object y)
+		{
+			if(y==this)	return true;
+			else if(y==null)	return false;
+			else if(y.getClass()!=this.getClass())	return false;
+			else {
+				Transaction that=(Transaction) y;
+				if (that.who!=this.who) 	return false;
+				if (that.when!=this.when)	return false;
+				if(that.amount!=this.amount)return false;
+				return true;
+			}
+		}
+		
+		public int hashCode()
+		{
+			int hash=17;
+			hash=31*hash+who.hashCode();
+			hash=31*hash+when.hashCode();
+			hash=31*hash+((Double)amount).hashCode();
+			return hash;
+		}
+		
+		
+		
 	}
 }
