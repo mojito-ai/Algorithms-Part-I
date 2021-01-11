@@ -50,4 +50,15 @@ public class KdTrees {
 	 * <li> Implementation: BST, but alternate x and y as key
 	 */
 
+	/*
+	 * Range search in 2-d tree: Find all points in a query axis alignment rectangle.
+	 * <li> Check if point in node lies in a given rectangle.
+	 * <li> Recursively search left/bottom (if any could fall in rectangle)
+	 * <li> Recursively search right/top (if any could fall in rectangle)
+	 * 
+	 * 
+	 * Nearest Neighbour search in 2-d tree: Find closest point to query point
+	 * <li> Check distance from point in node to query node.
+	 * <li> 
+	 */
 }
