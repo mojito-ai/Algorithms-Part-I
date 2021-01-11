@@ -59,6 +59,8 @@ public class KdTrees {
 	 * 
 	 * Nearest Neighbour search in 2-d tree: Find closest point to query point
 	 * <li> Check distance from point in node to query node.
-	 * <li> 
+	 * <li> Recursively search left/bottom (if any could fall in rectangle)
+	 * <li> Recursively search right/top (if any could fall in rectangle)
+	 * Organise method so that it begins by searching for query point.
 	 */
 }
