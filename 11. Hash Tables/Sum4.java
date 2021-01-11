@@ -35,7 +35,7 @@ public class Sum4 {
 		}
 	}
 	
-	private void sum(Integer [] a)
+	private void count(Integer [] a)
 	{
 		int N=a.length;
 		int count=0;
@@ -47,6 +47,7 @@ public class Sum4 {
 				{
 					count++;
 					System.out.printf("Indices= %d %d %d %d \n", i, j, x.index1, x.index2 );
+//					System.out.printf("Indices= %d %d %d %d \n", a[i], a[j], a[x.index1], a[x.index2] );
 				}
 			}
 		
@@ -57,7 +58,7 @@ public class Sum4 {
 	{
 		Integer a[]={-4,-3,-2,-1,0,1,2,3,4};
 		Sum4 sum=new Sum4(a);
-		sum.sum(a);
+		sum.count(a);
 	}
 	
 	
