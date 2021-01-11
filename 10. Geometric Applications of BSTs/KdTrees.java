@@ -37,5 +37,17 @@ public class KdTrees {
 	 * 
 	 * Caveat: Clustering
 	 */
+	
+	/**
+	 * Space Partitioning Trees: Use a tree to represent a recursive subdivision of 2d space.
+	 * Grid: Divide space uniformly into squares.
+	 * 2d trees: Divide into 2 half planes
+	 * Quad trees: Divide into 4 quadrants.
+	 * BSP tree: Divide space into 2 regions
+	 * 
+	 * <li> Applications: Ray tracing, acclerate rendering, mesh generation.
+	 * 
+	 * <li> Implementation: BST, but alternate x and y as key
+	 */
 
 }
