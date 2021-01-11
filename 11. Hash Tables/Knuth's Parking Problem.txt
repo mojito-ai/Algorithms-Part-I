@@ -1,0 +1,17 @@
+Model: Cars arrive at one-way street with M parking spaces. Each desires a random space i: if space i is taken, try
+	   i+1, i+2, ......
+	   
+Interpretation: If every car starts looking for a parking space at random time (that's our hash function) then how far do
+they have to go to look for space.
+
+	1. Half full: With M/2 cars, mean displacement ~3/2
+	2. Full: With M cars, mean displacement ~ (πM/2)^0.5
+
+Analysis: Knuth Theorem
+Under uniform hashing assumption, the average number of probes in a linear probing hash table of size M that contains N=αM keys
+
+	1. Search hit ~1/2(1+1/1-α)
+	2. Search miss/insert ~1/2(1+1/(1-α)^2)
+	
+If α=1/2	Search hit ~ 3/2
+			Search miss ~ 5/2
