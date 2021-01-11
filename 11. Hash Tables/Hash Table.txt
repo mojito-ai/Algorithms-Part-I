@@ -1,0 +1,30 @@
+Hash Table:
+
+1. One way hash functions: MD4, MD5, SHA-0, SHA-1, SHA-2, WHIRLPOOL, RIPEMD-160
+							
+						   String password=args[0];
+						   MessageDigest sha1=MessageDigest.getInstance("SHA1");
+						   byte [] bytes = sha1.digest(password);
+						   //print bytes as hex string
+					
+2. Collision Resolution:
+		
+		a. Two probe hashing (Seperate chaining variant): 
+			- Hash to two probes, insert key in shorter of the two chains.
+			- Reduce expected length of the longest chain to loglogN.
+		
+		b. Double hashing (Linear Probing variant):
+			- Use linear probing but skip a variable amount, not 1 each time.
+			- Effectively eliminates clustering.
+			- Can allow table to become nearly full.
+			- Difficult to implement delete.
+			
+		c. Cuckoo hashing (Linear Probing variant):
+			- Hash key to two positions; insert key into either position. 
+			- If occupied, reinsert the displaced key into its alternative position (and recur)
+			- Constant worst case time for search
+			
+3. Java Implementation:
+
+		a. Red-Black BST - java.util.TreeMap, java.util.TreeSet.
+		b. Hash Table - java.util.HashMap, java.util.IdentityHashMap
