@@ -126,5 +126,39 @@ public class SET<Key extends Comparable<Key>>
 		Inorder(x.right,q);
 	}
 	
+	public SET<Key> union(SET<Key> that) {
+        if (that == null) throw new IllegalArgumentException("called union() with a null argument");
+        SET<Key> c = new SET<Key>();
+        for (Key x : this.Keys()) {
+            c.add(x);
+        }
+        for (Key x : that.Keys()) {
+            c.add(x);
+        }
+        return c;
+    }
+
+    /**
+     * Returns the intersection of this set and that set.
+     *
+     * @param  that the other set
+     * @return the intersection of this set and that set
+     * @throws IllegalArgumentException if {@code that} is {@code null}
+     */
+    public SET<Key> intersects(SET<Key> that) {
+        if (that == null) throw new IllegalArgumentException("called intersects() with a null argument");
+        SET<Key> c = new SET<Key>();
+        if (this.size() < that.size()) {
+            for (Key x : this.Keys()) {
+                if (that.contains(x)) c.add(x);
+            }
+        }
+        else {
+            for (Key x : that.Keys()) {
+                if (this.contains(x)) c.add(x);
+            }
+        }
+        return c;
+    }
 	
 }
