@@ -1,6 +1,6 @@
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
-
+//import java.util.TreeSet;
 /**
 * <h1>Sets: A collection of distinct keys</h1>
 * 
@@ -149,6 +149,11 @@ public class SET<Key extends Comparable<Key>>
      * @throws IllegalArgumentException if {@code that} is {@code null}
      */
     public SET<Key> intersects(SET<Key> that) {
+    	/**
+    	 * Returning the set of all elements contained in the two given sets takes time proportional to size of smaller set.
+    	 * Since we iterate only over the smaller set and check if they are in large set. Extra space proportional to size of intersection
+    	 * 
+    	 */
         if (that == null) throw new IllegalArgumentException("called intersects() with a null argument");
         SET<Key> c = new SET<Key>();
         if (this.size() < that.size()) {
