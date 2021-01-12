@@ -1,3 +1,6 @@
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
+
 /**
 * <h1>Sets: A collection of distinct keys</h1>
 * 
@@ -161,4 +164,20 @@ public class SET<Key extends Comparable<Key>>
         return c;
     }
 	
+    //WhiteList
+    
+    public static void main(String [] args)
+    {
+    	SET <String> set=new SET<>();
+    	In in=new In(args[0]);
+    	while(!in.isEmpty())
+    		set.add(in.readString());
+    	
+    	while(!StdIn.isEmpty())
+    	{
+    		String word=StdIn.readString();
+    		if(set.contains(word))
+    			System.out.println(word);
+    	}
+    }
 }
