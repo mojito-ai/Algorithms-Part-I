@@ -53,5 +53,4 @@ public class SparseVector {
 		}
 		return sum;
 	}
-
 }
