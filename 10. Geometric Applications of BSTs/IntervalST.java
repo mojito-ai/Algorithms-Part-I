@@ -101,7 +101,6 @@ public class IntervalST<Key extends Comparable<Key>, Value>
 	
 	void delete(Key lo, Key hi)		//delete the given interval
 	{	
-		
 	}
 	
 	Iterable<Value>	intersects(Key lo, Key hi)	//all intervals that intersect the given interval
