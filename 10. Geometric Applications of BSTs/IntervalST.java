@@ -106,6 +106,5 @@ public class IntervalST<Key extends Comparable<Key>, Value>
 	Iterable<Value>	intersects(Key lo, Key hi)	//all intervals that intersect the given interval
 	{
 		return null;
-		
 	}
 }
