@@ -5,7 +5,7 @@ import java.util.Hashtable;
 * <h1>Sparse Vector: When too many 0's in matrix products, use better data structure to store vectors</h1>
 *
 * <li> Assumption: Matrix dimension is 10000, average number of nonzero entries per row ~10
-* <li> Symbol Table representation: Key=Index, Value=entry, Effecient iterator needed. 
+* <li> Symbol Table representation: Key=Index, Value=entry, efficient iterator needed. 
 * <li> Space = Number of non zero entries
 * 
 * @author  Mohit Sharma
@@ -43,6 +43,7 @@ public class SparseVector {
 		return v.keys();
 	}
 	
+	//Dot product of matrix with vector
 	public double dot(double [] that)
 	{
 		double sum=0.0;
