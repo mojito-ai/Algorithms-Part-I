@@ -13,4 +13,4 @@ A. Key should be unique in hash table. It means that for equal objects, it shoul
 
 3. Describe what happens if you override hashCode() but implement public boolean equals(OlympicAthlete that) instead of 
    public boolean equals(Object that).
-A. Error: The method equals(Athlete) of type Athlete must override or implement a supertype method.
+A. Error: The method equals (Athlete) of type Athlete must override or implement a supertype method.
