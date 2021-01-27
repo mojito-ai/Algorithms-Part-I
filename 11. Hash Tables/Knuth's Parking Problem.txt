@@ -14,4 +14,4 @@ Under uniform hashing assumption, the average number of probes in a linear probi
 	2. Search miss/insert ~1/2(1+1/(1-α)^2)
 	
 If α=1/2	Search hit ~ 3/2
-			Search miss ~ 5/2
+		Search miss ~ 5/2
