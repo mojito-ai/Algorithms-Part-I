@@ -27,4 +27,4 @@
 	a. Worst case: lgN (all 2 nodes)
 	b. Best case: lg₃N (all 3 nodes)
 	c. Between 12 to 20 for a million nodes.
-	d. Between 18 to 30 for a billion nodes
+	d. Between 18 to 30 for a billion nodes.
