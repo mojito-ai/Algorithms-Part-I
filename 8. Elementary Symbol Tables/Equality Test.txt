@@ -34,4 +34,4 @@ public final class Date implements Comparable<Date>
 1. If primitive, use ==
 2. If Object, use equals()
 3. If field is an array, apply to each entry -> Arrays.equals(a,b);
-												Arrays.deepEquals(a,b);
+						Arrays.deepEquals(a,b);
