@@ -11,7 +11,7 @@ Sorting algorithms are used in broad variety of applications
 	7. Computational biology
 	8. Load balancing on a parallel computer
 	
-	9.Find the median.
+	9.  Find the median.
 	10. Identify statistical outliers.					problems that become easy once sorted
 	11. Binary search in a database.
 	12. Find duplicates in a mailing list.
