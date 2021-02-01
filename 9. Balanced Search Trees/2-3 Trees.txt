@@ -16,7 +16,8 @@
 4. Insertion:
 	a. Insert into a 2-Node at bottom: Search for key, as usual. Replace 2-Node with 3-Node.
 	b. Insert into a 3-Node at bottom: Add new key to 3-Node to make a temporary 4 Node. Move the middle key into the parent.
-									   Repeat up the tree, as necessary. If you reach the root and its a 4-Node, split it into three 2-Nodes.
+									   Repeat up the tree, as necessary. 
+									   If you reach the root and its a 4-Node, split it into three 2-Nodes.
 									   
 5. Construction:
 	a. Splitting of a 4-Node into a 3-Node is a local transformation.
