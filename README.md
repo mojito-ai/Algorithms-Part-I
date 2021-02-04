@@ -7,7 +7,8 @@ An ensemble of Data Structures &amp; Algorithms used in computational science. D
 
 The git-repo includes algorithms used widely in computational science, computational biology and in all IT sectors. The algorithms are divided into the following categories:
 
-1. #### **Union Find**
+1. #### **Union Find**: Basic approach to developing and analyzing algorithms by considering the dynamic connectivity problem. We introduce the union–find data type and consider several implementations (quick find, quick union, weighted quick union, and weighted quick union with path compression). Finally, we apply the union–find data type to the percolation problem from physical chemistry.
+
 2. #### **Analysis of Algorithms**
 3. #### **Stacks and Queues**
 4. #### **Elementary Sorts**
