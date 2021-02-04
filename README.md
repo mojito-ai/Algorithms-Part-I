@@ -1,11 +1,11 @@
 # Algorithms-Part-I
 ![Algorithms-Part-I](https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~algorithms-part1/XDP~COURSE!~algorithms-part1.jpeg)
 
-An ensemble of Data Structures &amp; Algorithms used in computational science. Designed in accordance with Princeton University MOOC (Coursera) &amp; programmed in Java.
+### An ensemble of Data Structures &amp; Algorithms used in computational science. Designed in accordance with Princeton University MOOC (Coursera) &amp; programmed in Java.
 
 [Link to the course](https://online.princeton.edu/node/201)
 
-The git-repo includes algorithms used widely in computational science, computational biology and in all IT sectors. The algorithms are divided into the following categories:
+#### The git-repo includes algorithms used widely in computational science, computational biology and in all IT sectors. The algorithms are divided into the following categories:
 
 1. **Union Find**: Basic approach to developing and analyzing algorithms by considering the dynamic connectivity problem. We introduce the union–find data type and consider several implementations (quick find, quick union, weighted quick union, and weighted quick union with path compression). Finally, we apply the union–find data type to the percolation problem from physical chemistry.
 
@@ -31,11 +31,11 @@ The git-repo includes algorithms used widely in computational science, computati
 
 12. **Symbol Table Applications**: We conclude with applications of symbol tables including sets, dictionary clients, indexing clients, and sparse vectors.
 
-* **Author: Mohit Sharma**
-* **Email: msharma3@me.iitr.ac.in**
+## * **Author: Mohit Sharma**
+## * **Email: msharma3@me.iitr.ac.in**
 
-Proper care has been taken to ensure that the speed analysis and the space analysis is done. There is a classic space/time tradeoff and the author has ensured to ensure fast processing algorithms in accordance with Moore's Law. Still there might be several errors or performance bugs at some places. Users are welcomed to create PR's or fork the repository to create better performing algorithms.
+#### Proper care has been taken to ensure that the speed analysis and the space analysis is done. There is a classic space/time tradeoff and the author has ensured to ensure fast processing algorithms in accordance with Moore's Law. Still there might be several errors or performance bugs at some places. Users are welcomed to create PR's or fork the repository to create better performing algorithms.
 
-> An algorithm must be seen to be believed. - Sir Donald Knuth
+#### > An algorithm must be seen to be believed. - Sir Donald Knuth
 
->For me, great algorithms are the poetry of computation. Just like verse, they can be terse, allusive, dense, and even mysterious. But once unlocked, they cast a brilliant new light on some aspect of computing. - Francis Sullivan
+#### >For me, great algorithms are the poetry of computation. Just like verse, they can be terse, allusive, dense, and even mysterious. But once unlocked, they cast a brilliant new light on some aspect of computing. - Francis Sullivan
