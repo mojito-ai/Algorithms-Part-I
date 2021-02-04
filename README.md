@@ -9,9 +9,12 @@ The git-repo includes algorithms used widely in computational science, computati
 
 1. #### **Union Find**: Basic approach to developing and analyzing algorithms by considering the dynamic connectivity problem. We introduce the union–find data type and consider several implementations (quick find, quick union, weighted quick union, and weighted quick union with path compression). Finally, we apply the union–find data type to the percolation problem from physical chemistry.
 
-2. #### **Analysis of Algorithms**
-3. #### **Stacks and Queues**
-4. #### **Elementary Sorts**
+2. #### **Analysis of Algorithms**: The basis of our approach for analyzing the performance of algorithms is the scientific method. We begin by performing computational experiments to measure the running times of our programs. We use these measurements to develop hypotheses about performance. Next, we create mathematical models to explain their behavior. Finally, we consider analyzing the memory usage of our Java programs.
+
+3. #### **Stacks and Queues**: We consider two fundamental data types for storing collections of objects: the stack and the queue. We implement each using either a singly-linked list or a resizing array. We introduce two advanced Java features—generics and iterators—that simplify client code. Finally, we consider various applications of stacks and queues ranging from parsing arithmetic expressions to simulating queueing systems.
+
+4. #### **Elementary Sorts**: We introduce the sorting problem and Java's Comparable interface. We study two elementary sorting methods (selection sort andinsertion sort) and a variation of one of them (shellsort). We also consider two algorithms for uniformly shuffling an array. We conclude with an application of sorting to computing the convex hull via the Graham scan algorithm.
+
 5. #### **Merge Sort**
 6. #### **Quick Sort**
 7. #### **Priority Queues**
