@@ -31,8 +31,8 @@
 
 12. **Symbol Table Applications**: We conclude with applications of symbol tables including sets, dictionary clients, indexing clients, and sparse vectors.
 
-## * **Author: Mohit Sharma**
-## * **Email: msharma3@me.iitr.ac.in**
+## **Author: Mohit Sharma**
+## **Email: msharma3@me.iitr.ac.in**
 
 #### Proper care has been taken to ensure that the speed analysis and the space analysis is done. There is a classic space/time tradeoff and the author has ensured to ensure fast processing algorithms in accordance with Moore's Law. Still there might be several errors or performance bugs at some places. Users are welcomed to create PR's or fork the repository to create better performing algorithms.
 
