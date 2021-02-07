@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /**
 * <h1>Indexed Max Priority Queue: It is a traditional priority queue variant which on top of the regular PQ operations
 * 								  supports quick updates and deletions of key-value pairs. </h1>
@@ -25,6 +27,81 @@ public class IndexMaxPQ<Key extends Comparable<Key>> {
 	IndexMaxPQ(int N)
 	{
 		pq=(Key []) new Object[N+1];
+	}
+	
+	/**
+	 * Associate key with index i
+	 * @param i
+	 * @param key
+	 */
+	void insert(int i, Key key)
+	{
+		
+	}
+	
+	/**
+     * Increase the key associated with index {@code i} to the specified value.
+     *
+     * @param  i the index of the key to increase
+     * @param  key increase the key associated with index {@code i} to this key
+     * @throws IllegalArgumentException unless {@code 0 <= i < maxN}
+     * @throws IllegalArgumentException if {@code key <= keyOf(i)}
+     * @throws NoSuchElementException no key is associated with index {@code i}
+     */
+    public void increaseKey(int i, Key key)
+	{
+		
+	}
+	
+	 /**
+     * Decrease the key associated with index {@code i} to the specified value.
+     *
+     * @param  i the index of the key to decrease
+     * @param  key decrease the key associated with index {@code i} to this key
+     * @throws IllegalArgumentException unless {@code 0 <= i < maxN}
+     * @throws IllegalArgumentException if {@code key >= keyOf(i)}
+     * @throws NoSuchElementException no key is associated with index {@code i}
+     */
+    public void decreaseKey(int i, Key key)
+    {
+    	
+    }
+	
+    /**
+     * Is i an index on the PQ
+     * @param i
+     * @return
+     */
+	boolean contains(int i)
+	{
+		
+	}
+	
+	/**
+	 * Remove a maximal key and return its associated value.
+	 * @return
+	 */
+	int delMax()
+	{
+		
+	}
+	
+	/**
+	 * Is the PQ empty?
+	 * @return
+	 */
+	boolean isEmpty()
+	{
+		
+	}
+	
+	/**
+	 * Number of entries in the PQ.
+	 * @return
+	 */
+	int size()
+	{
+		
 	}
 	
 	public void insert(Key key)
