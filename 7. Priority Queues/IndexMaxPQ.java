@@ -29,16 +29,22 @@ public class IndexMaxPQ<Key extends Comparable<Key>> {
 	 * 
 	 */
 	
+	/*
+	 * 1. The array pm is a Position Map we maintain to tell us the index of the node in the heap for a given key index (ki).
+	 * 	  It is synonymous with qp
+	 * 
+	 * 2. To know the position of a node to its key, we maintain a inverse lookup table (inverse map). It is synonymous with pq.
+	 */
 	private Key [] keys;
-	private int [] pq;
-	private int [] qp;
+	private int [] pm;		//position map
+	private int [] im;		//inverse map
 	private int N=0;
 	@SuppressWarnings("unchecked")
 	IndexMaxPQ(int N)
 	{
 		keys=(Key []) new Object[N];
-		pq=new int[N];
-		qp=new int[N];
+		pm=new int[N];
+		im=new int[N];
 	}
 	
 	/**
