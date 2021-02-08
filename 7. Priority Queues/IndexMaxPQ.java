@@ -29,12 +29,16 @@ public class IndexMaxPQ<Key extends Comparable<Key>> {
 	 * 
 	 */
 	
-	private Key [] pq;
+	private Key [] keys;
+	private int [] pq;
+	private int [] qp;
 	private int N=0;
 	@SuppressWarnings("unchecked")
 	IndexMaxPQ(int N)
 	{
-		pq=(Key []) new Object[N+1];
+		keys=(Key []) new Object[N];
+		pq=new int[N];
+		qp=new int[N];
 	}
 	
 	/**
@@ -44,7 +48,11 @@ public class IndexMaxPQ<Key extends Comparable<Key>> {
 	 */
 	void insert(int i, Key key)
 	{
-		
+		keys[i]=key;
+		qp[i]=N;
+		pq[N]=i;
+		swim(N);
+		N++;
 	}
 	
 	/**
@@ -119,10 +127,10 @@ public class IndexMaxPQ<Key extends Comparable<Key>> {
 	}
 	private void swim(int k)
 	{
-		while(k>1 && less(k/2,k))
+		while(k>1 && less((k-1)/2,k))
 		{
-			exch(k,k/2);
-			k=k/2;
+			exch(k,(k-1)/2);
+			k=(k-1)/2;
 		}
 	}
 	
@@ -150,14 +158,16 @@ public class IndexMaxPQ<Key extends Comparable<Key>> {
 	
 	private boolean less(int i, int j)	//helper functions
 	{
-		return pq[i].compareTo(pq[j])<0;
+		return keys[pq[i]].compareTo(keys[pq[j]])<0;
 	}
 	
 	private void exch(int i, int j)	
 	{
-		Key swap=pq[i];
+		qp[pq[j]]=i;
+		qp[pq[i]]=j;
+		int tmp=pq[i];
 		pq[i]=pq[j];
-		pq[j]=swap;
+		pq[j]=tmp;
 	}
 
 }
