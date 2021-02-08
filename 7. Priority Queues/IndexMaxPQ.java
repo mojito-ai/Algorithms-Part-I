@@ -14,12 +14,20 @@ import java.util.NoSuchElementException;
 * 
 * 
 * @author  Mohit Sharma
-* @version 1.0
-* @since   07-02-2021
+* @version 2.0
+* @since   08-02-2021
 * 
 */
 
 public class IndexMaxPQ<Key extends Comparable<Key>> {
+	/**
+	 * Start with the same code as MaxPQ
+	 * Maintain parallel arrays keys[], pq[], qp[] so that:
+	 * <li> keys[i] is the priority of i
+	 * <li> pq[i] is the index of the key in heap position i
+	 * <li> qp[i] is the heap position of the key with index i
+	 * 
+	 */
 	
 	private Key [] pq;
 	private int N=0;
