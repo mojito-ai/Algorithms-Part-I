@@ -42,7 +42,7 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 	@SuppressWarnings("unchecked")
 	IndexMinPQ(int N)
 	{
-		values=(Priority []) new Object[N];
+		values=(Priority []) new Object[N]; // 0 based indexing. Parent=(k-1)/2 ; Children=2k+1, 2k+2
 		pm=new int[N];
 		im=new int[N];
 	}
@@ -160,15 +160,19 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 	
 	private void sink(int k)
 	{
-		while(N>=2*k)
+		while(true)
 		{
-			int j=2*k;
-			if(j<N && less(j,j+1))
-				j=j+1;
-			if(!less(k,j))
+			int left=2*k+1;
+			int right=2*k+2;
+			int smallest=left;
+			
+			if(right<N && less(right,left))
+				smallest=right;
+			
+			if(left>=N || less(k,smallest))
 				break;
-			swap(k,j);
-			k=j;
+			swap(smallest,k);
+			k=smallest;
 		}
 	}
 	
