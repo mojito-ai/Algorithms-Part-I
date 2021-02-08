@@ -115,7 +115,7 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 	 */
 	boolean isEmpty()
 	{
-		
+		return N==0;
 	}
 	
 	/**
@@ -124,22 +124,26 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 	 */
 	int size()
 	{
-		
-	}
-	
-	public void insert(Key key)
-	{
-		pq[++N]=key;
-		swim(N);
+		return N;
 	}
 
-	public Key deleteMax()
+	/**
+	 * O(N) to O(logN) since node position lookups are O(1) but repositioning is still O(logN)
+	 * <li> Exchange the root node and bottom node.
+	 * <li> Do swim or sink as needed.
+	 * <li> We can also remove any arbitrary node by knowing k value
+	 * @param k
+	 */
+	public void remove(int k)
 	{
-		Key key=pq[1];
-		exch(1,N);
-		sink(1);
-		pq[N--]=null;
-		return key;
+		int i=pm[k];
+		swap(i,N);
+		N--;
+		sink(i);
+		swim(i);
+		values[k]=null;
+		pm[k]=-1;
+		im[N]=-1;
 	}
 	
 	/***********************************************************
@@ -171,6 +175,7 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 			
 			if(left>=N || less(k,smallest))
 				break;
+			
 			swap(smallest,k);
 			k=smallest;
 		}
