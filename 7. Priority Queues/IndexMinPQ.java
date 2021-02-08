@@ -71,9 +71,13 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
      * @throws IllegalArgumentException if {@code key <= keyOf(i)}
      * @throws NoSuchElementException no key is associated with index {@code i}
      */
-    public void increaseKey(int i, Key key)
+    public void increaseKey(int i, Priority val)
 	{
-		
+		if(values[i].compareTo(val)<0)
+		{
+			values[i]=val;
+			sink(pm[i]);
+		}
 	}
 	
 	 /**
@@ -85,28 +89,21 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
      * @throws IllegalArgumentException if {@code key >= keyOf(i)}
      * @throws NoSuchElementException no key is associated with index {@code i}
      */
-    public void decreaseKey(int i, Key key)
+    public void decreaseKey(int i, Priority val)
     {
-    	
+    	if(val.compareTo(values[i])<0)
+		{
+			values[i]=val;
+			swim(pm[i]);
+		}
     }
-	
-    /**
-     * Is i an index on the PQ
-     * @param i
-     * @return
-     */
-	boolean contains(int i)
-	{
-		
-	}
-	
 	/**
 	 * Remove a maximal key and return its associated value.
 	 * @return
 	 */
-	int delMax()
+	Priority delMin()
 	{
-		
+		return remove(0);
 	}
 	
 	/**
@@ -134,16 +131,18 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 	 * <li> We can also remove any arbitrary node by knowing k value
 	 * @param k
 	 */
-	public void remove(int k)
+	public Priority remove(int k)
 	{
 		int i=pm[k];
 		swap(i,N);
 		N--;
 		sink(i);
 		swim(i);
+		Priority tmp=values[k];
 		values[k]=null;
 		pm[k]=-1;
 		im[N]=-1;
+		return tmp;
 	}
 	
 	/***********************************************************
