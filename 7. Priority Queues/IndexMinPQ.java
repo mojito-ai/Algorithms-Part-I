@@ -194,4 +194,15 @@ public class IndexMinPQ<Priority extends Comparable<Priority>> {
 		im[j]=tmp;
 	}
 
+	/*
+	 *Running Time: Depends on PQ implementation
+	 *
+	 * PQ implementation			insert			deleteMin			decreaseKey			total
+	 * Array						1					V					1				  V^2
+	 * Binary heap					logV				logV				logV			  ElogV
+	 * d-way heap (Johnson-1975)	logⱼV				logⱼV				logⱼV			  ElogₑₗⱼV
+	 * Fibonnaci Heap
+	 * (Fredman-Tarjan 1984)		1*					logV*				1*				  E+VlogV
+	 * 
+	 */
 }
